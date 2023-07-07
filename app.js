@@ -24,7 +24,10 @@ function checkWin(){
              document.getElementById(possWin[i][0]).classList.add("win");
              document.getElementById(possWin[i][1]).classList.add("win");
              document.getElementById(possWin[i][2]).classList.add("win");
-            
+             let winCells = document.querySelectorAll(".win");
+            for (let w = 0; w < winCells.length; w++) {
+            winCells[w].style.backgroundColor = "peachpuff";
+            }
              //set gameEnded to "true" so no more moves can be made after a "win" is established
              gameEnded = true;
              //Added new variable to make sure correct symbol displays as winner
@@ -74,9 +77,10 @@ document.getElementById("reset").addEventListener(
             document.getElementById(i.toString()).classList.remove = ("o");
             document.getElementById(i.toString()).classList.remove = ("win");
             let winCells = document.querySelectorAll(".win");
-            for (let w = 0; w < winCells.length; w++){
-                winCells[w].style.backgroundColor = "white";
+            for (let w = 0; w < winCells.length; w++) {
+            winCells[w].style.backgroundColor = "";
             }
+        
             gameEnded = false;
         }
     }
