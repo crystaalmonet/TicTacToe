@@ -4,24 +4,6 @@ let playerSymbol = "X";
 //Adding a string to keep track of whether the game has ended
 let gameEnded = false
 
-//Iterate over each cell in the table (between 1 and 9) and add an event listener that will run whener a user clicks on the cell
-for(let i = 1; i <= 9; i++){
-    document.getElementById(i.toString()).addEventListener(
-        "click", function() {
-            //Creating function within event listener for player's "X" to show on gameboard
-            if (this.innerHTML === "" && !gameEnded){
-                this.innerHTML = playerSymbol;  
-                this.classList.add(playerSymbol.toLowerCase());
-            //Creating if- else statement to swap between "X" and "O"
-            if (playerSymbol === "X") {
-                playerSymbol = "O";
-              } else {
-                playerSymbol = "X";
-              }
-            }
-        }
-    );
-}
 //Creating new variable to store possible winning positions in arrays
 let possWin = [
     [1,2,3], [4,5,6],
@@ -50,4 +32,25 @@ function checkWin(){
   }, 500);
           } 
     }
+}
+
+//Iterate over each cell in the table (between 1 and 9) and add an event listener that will run whener a user clicks on the cell
+for(let i = 1; i <= 9; i++){
+    document.getElementById(i.toString()).addEventListener(
+        "click", function() {
+            //Creating function within event listener for player's "X" to show on gameboard
+            if (this.innerHTML === "" && !gameEnded){
+                this.innerHTML = playerSymbol;  
+                this.classList.add(playerSymbol.toLowerCase());
+                //Adding function to check if player has won
+                checkWin();
+            //Creating if- else statement to swap between "X" and "O"
+            if (playerSymbol === "X"){
+          playerSymbol = "O";
+            } else {
+          playerSymbol = "X";   
+            }
+            }
+        }
+    );
 }
