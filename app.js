@@ -14,16 +14,16 @@ let possWin = [
 
 //Adding a new function to iterate through each array to check for winning positions
 function checkWin(){
-    for(let i = 1; i <= possWin.length; i++){
+    for(let i = 0; i < possWin.length; i++){
         if (
-            document.getElementById(winPos[i][0]).innerHTML === playerSymbol &&
-            document.getElementById(winPos[i][1]).innerHTML === playerSymbol &&
-            document.getElementById(winPos[i][2]).innerHTML === playerSymbol
+            document.getElementById(possWin[i][0]).innerHTML === playerSymbol &&
+            document.getElementById(possWin[i][1]).innerHTML === playerSymbol &&
+            document.getElementById(possWin[i][2]).innerHTML === playerSymbol
           ) {
               //adding a CSS class of "win" so the cells will highlight when it's in a winning position
-             document.getElementById(winPos[i][0]).classList.add("win");
-             document.getElementById(winPos[i][1]).classList.add("win");
-             document.getElementById(winPos[i][2]).classList.add("win");
+             document.getElementById(possWin[i][0]).classList.add("win");
+             document.getElementById(possWin[i][1]).classList.add("win");
+             document.getElementById(possWin[i][2]).classList.add("win");
              //set gameEnded to "true" so no more moves can be made after a "win" is established
              gameEnded = true;
 //Alerts playerSymbol wins, the 500 delays the pop up by a half a second
@@ -43,13 +43,13 @@ for(let i = 1; i <= 9; i++){
                 this.innerHTML = playerSymbol;  
                 this.classList.add(playerSymbol.toLowerCase());
                 //Adding function to check if player has won
-                checkWin();
+                checkWin();   
             //Creating if- else statement to swap between "X" and "O"
-            if (playerSymbol === "X"){
+            if (playerSymbol === "X")
           playerSymbol = "O";
-            } else {
+             else 
           playerSymbol = "X";   
-            }
+            
             }
         }
     );
