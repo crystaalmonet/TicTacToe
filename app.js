@@ -24,8 +24,16 @@ function checkWin(){
              document.getElementById(possWin[i][0]).classList.add("win");
              document.getElementById(possWin[i][1]).classList.add("win");
              document.getElementById(possWin[i][2]).classList.add("win");
+            
              //set gameEnded to "true" so no more moves can be made after a "win" is established
              gameEnded = true;
+             //Added new variable to make sure correct symbol displays as winner
+             let winnerSymbol = playerSymbol;
+             if (playerSymbol === "X"){
+                playerSymbol = "O";
+                  } else {
+                playerSymbol = "X";   
+                  }
 //Alerts playerSymbol wins, the 500 delays the pop up by a half a second
   setTimeout(function() {
     alert(playerSymbol + " wins!");
@@ -45,12 +53,31 @@ for(let i = 1; i <= 9; i++){
                 //Adding function to check if player has won
                 checkWin();   
             //Creating if- else statement to swap between "X" and "O"
-            if (playerSymbol === "X")
+            if (playerSymbol === "X"){
           playerSymbol = "O";
-             else 
+            } else {
           playerSymbol = "X";   
+            }
             
             }
         }
     );
 }
+
+//Adding functionality to "reset" button
+document.getElementById("reset").addEventListener(
+    "click",
+    function(){
+        for(let i = 1; i <= 9; i++){
+            document.getElementById(i.toString()).innerHTML = "";
+            document.getElementById(i.toString()).classList.remove = ("x");
+            document.getElementById(i.toString()).classList.remove = ("o");
+            document.getElementById(i.toString()).classList.remove = ("win");
+            let winCells = document.querySelectorAll(".win");
+            for (let w = 0; w < winCells.length; w++){
+                winCells[w].style.backgroundColor = "white";
+            }
+            gameEnded = false;
+        }
+    }
+);

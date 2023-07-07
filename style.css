@@ -3,21 +3,37 @@ table {
     margin: 0 auto;
   }
   td {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     text-align: center;
     vertical-align: middle;
     border: 1px solid black;
   }
   .x {
     color: hotpink;
-    font-size: 80px;
+    font-size: 100px;
   }
   
   .o {
     color: orange;
-    font-size: 80px;
+    font-size: 100px;
   }
-  .win {
-      background-color: peachpuff;
+  .win{
+    background-color: peachpuff;  
   }
+  #reset{
+    display: block;
+    margin-left: 280px;
+    margin-top: 60px;
+    padding: 20px;
+    border-radius: 30px;
+    border: none;
+    background-color: skyblue;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  button:hover{
+      cursor: pointer;
+      opacity: 0.7;
+  }
+  
